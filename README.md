@@ -1,43 +1,54 @@
 # Toolbox Deluxe
 
-**Toolbox Deluxe** ist ein vollständig lokales, sicheres Tool zum Organisieren und Verwalten von Notizen, Links, IPFS-Dateien, kleinen Datensätzen und HTML-Snippets – alles in einer einzigen Datei.  
-Keine Installation. Keine Server. Keine Accounts. Keine Abhängigkeiten.
+**Toolbox Deluxe** is a fully local, secure tool for organizing and managing notes, links, IPFS files, small datasets, and HTML snippets – all within a single file.  
+No installation. No servers. No accounts. No dependencies.
 
-[👉 Jetzt starten](https://99fk.github.io/toolbox-deluxe/)
+[👉 Start now](https://99fk.github.io/toolbox-deluxe/)
 
 ---
 
 ## ✅ Features
 
-- Lokale Eintragsverwaltung (Name + URL + CID + optional HTML)
-- Einzelne Einträge als JSON exportieren 📤
-- Gesamte Toolbox als HTML exportieren 💾
-- Import per Drag & Drop von JSON-Dateien
-- HTML Snippets direkt anzeigen lassen
-- IPFS Unterstützung mit mehreren Gateways
-- Mehrsprachige Oberfläche (9 Sprachen)
-- Komplett offline, 100% Datenschutz
+- Local entry management (name + URL + CID + optional HTML code)
+- Export single entries as JSON 📤
+- Export the entire toolbox as HTML 💾
+- Import entries via drag & drop from JSON files
+- Display HTML snippets directly
+- IPFS support with multiple gateways
+- Fully offline, 100% privacy
 
 ---
 
-## 💻 Nutzung
+## 💻 Usage
 
-1. **Download:** [index.html herunterladen](https://99fk.github.io/toolbox-deluxe/)
-2. **Öffnen:** Mit jedem modernen Browser (`file://`)
-3. **Einträge verwalten:** Hinzufügen, bearbeiten, exportieren, importieren
+1. **Download:** [Download index.html](https://99fk.github.io/toolbox-deluxe/)
+2. **Open:** In any modern browser (`file://`)
+3. **Manage entries:** Add, edit, export, import
 
-👉 **Alle Daten bleiben immer nur lokal!**
-
----
-
-## 📝 Lizenz
-
-[GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.html)  
-(c) 2025 Fatih Kodak
+👉 **All data always stays local!**
 
 ---
 
-## 💎 Credits
+## 💡 Notes
 
-Erstellt mit Unterstützung von OpenAI ChatGPT 💙  
-Special thanks to the open source community.
+This project is designed to be minimalistic and self-contained.  
+You can host it on IPFS, use it as a portable offline toolbox, or integrate it into your own workflow.
+
+- No data is sent to the internet.
+- All functions work offline.
+- You can modify or expand the HTML file yourself.
+
+---
+
+## 🛡️ Disclaimer
+
+This tool comes with no warranty. Use at your own risk.  
+The developer assumes no liability for any data loss or misuse.
+
+---
+
+## ❤️ Credits
+
+Created with contributions from the OpenAI ChatGPT assistant.
+
+Enjoy your ultimate offline toolbox! 🚀
