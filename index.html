@@ -30,6 +30,8 @@
     margin-left: 5px;
 }
 
+ul#list[data-only="true"] li button { display: none !important; }
+ul#list[data-only="true"] li { cursor: pointer; }
 </style>
 <style>@keyframes slide-in-one-tap {
   from {
@@ -207,23 +209,31 @@
   font-weight: 600;
   font-style: normal;
 }
+ul#list[data-only="true"] li { cursor: pointer; }
 </style>
 
 <h1 id="toolboxTitle" title="Füge Einträge hinzu (Name + URL/CID/HTML). Exportiere Einträge (📤 oder 💾). Importiere JSON per Drag &amp; Drop.">Toolbox Deluxe</h1>
-<iframe id="description" src="description.html" scrolling="no" style="display: none; width: 100%; border: none;"></iframe>
-  <div class="input-group">
+
+  <div id="in" class="input-group">
     <input type="text" id="nameInput" placeholder="Name">
     <input type="text" id="urlInput" placeholder="URL">
     <input type="text" id="cidInput" placeholder="IPFS CID (optional)">
     <input type="text" id="descriptionInput" placeholder="Description (optional)" maxlength="100">
     <button onclick="addEntry()" style="font-size: 16px;">➕ Add</button>
-    <button onclick="download()" style="font-size: 16px;">💾 Export</button>
+    <button onclick="download()" style="font-size: 16px;">💾 Export</button><button onclick="downloadDataOnly()" style="font-size: 16px;">📥 Data Only Export</button>
+<button onclick="downloadEmpty()" style="font-size: 16px;">🆕 New Blank File</button>
+
   </div>
   <ul id="list"><li><span class="entry-name">Bat To Exe Converter <span class="entry-description">Windows application which wraps batch files in executable files.</span></span><span class="icons"><button class="icon-btn" title="Open entry (URL, IPFS or HTML)">▶️</button><button class="icon-btn" title="Edit">✏️</button><button class="icon-btn" title="Copy URL to clipboard">📋</button><button class="icon-btn" title="Export entry as JSON file">📤</button><button class="icon-btn" title="Delete">🗑️</button></span></li><li><span class="entry-name">HTML/JS Preview</span><span class="icons"><button class="icon-btn" title="Open entry (URL, IPFS or HTML)">▶️</button><button class="icon-btn" title="Edit">✏️</button><button class="icon-btn" title="Copy URL to clipboard">📋</button><button class="icon-btn" title="Export entry as JSON file">📤</button><button class="icon-btn" title="Delete">🗑️</button></span></li><li><span class="entry-name">KeeWeb <span class="entry-description">A version of KeeWeb (https://keeweb.info/) hosted on IPFS</span></span><span class="icons"><button class="icon-btn" title="Open entry (URL, IPFS or HTML)">▶️</button><button class="icon-btn" title="Edit">✏️</button><button class="icon-btn" title="Copy URL to clipboard">📋</button><button class="icon-btn" title="Export entry as JSON file">📤</button><button class="icon-btn" title="Delete">🗑️</button></span></li><li><span class="entry-name">PGP Tool <span class="entry-description">Simple client-side PGP key generator, encryption and decryption tool.</span></span><span class="icons"><button class="icon-btn" title="Open entry (URL, IPFS or HTML)">▶️</button><button class="icon-btn" title="Edit">✏️</button><button class="icon-btn" title="Copy URL to clipboard">📋</button><button class="icon-btn" title="Export entry as JSON file">📤</button><button class="icon-btn" title="Delete">🗑️</button></span></li><li><span class="entry-name">Checksum Calculator</span><span class="icons"><button class="icon-btn" title="Open entry (URL, IPFS or HTML)">▶️</button><button class="icon-btn" title="Edit">✏️</button><button class="icon-btn" title="Copy URL to clipboard">📋</button><button class="icon-btn" title="Export entry as JSON file">📤</button><button class="icon-btn" title="Delete">🗑️</button></span></li><li><span class="entry-name">Ps1 To Exe <span class="entry-description">Windows application which wraps Ps1 files in executable files.</span></span><span class="icons"><button class="icon-btn" title="Open entry (URL, IPFS or HTML)">▶️</button><button class="icon-btn" title="Edit">✏️</button><button class="icon-btn" title="Copy URL to clipboard">📋</button><button class="icon-btn" title="Export entry as JSON file">📤</button><button class="icon-btn" title="Delete">🗑️</button></span></li><li><span class="entry-name">Link to google.com <span class="entry-description">A simple link to google.com</span></span><span class="icons"><button class="icon-btn" title="Open entry (URL, IPFS or HTML)">▶️</button><button class="icon-btn" title="Edit">✏️</button><button class="icon-btn" title="Copy URL to clipboard">📋</button><button class="icon-btn" title="Export entry as JSON file">📤</button><button class="icon-btn" title="Delete">🗑️</button></span></li><li><span class="entry-name">Vbs To Exe <span class="entry-description">Windows application which wraps Vbs files in executable files.</span></span><span class="icons"><button class="icon-btn" title="Open entry (URL, IPFS or HTML)">▶️</button><button class="icon-btn" title="Edit">✏️</button><button class="icon-btn" title="Copy URL to clipboard">📋</button><button class="icon-btn" title="Export entry as JSON file">📤</button><button class="icon-btn" title="Delete">🗑️</button></span></li><li><span class="entry-name">Zipper <span class="entry-description">File compression web app</span></span><span class="icons"><button class="icon-btn" title="Open entry (URL, IPFS or HTML)">▶️</button><button class="icon-btn" title="Edit">✏️</button><button class="icon-btn" title="Copy URL to clipboard">📋</button><button class="icon-btn" title="Export entry as JSON file">📤</button><button class="icon-btn" title="Delete">🗑️</button></span></li><li><span class="entry-name">Base64 Encoder/Decoder</span><span class="icons"><button class="icon-btn" title="Open entry (URL, IPFS or HTML)">▶️</button><button class="icon-btn" title="Edit">✏️</button><button class="icon-btn" title="Copy URL to clipboard">📋</button><button class="icon-btn" title="Export entry as JSON file">📤</button><button class="icon-btn" title="Delete">🗑️</button></span></li></ul>
   <div id="dropzone" style="margin-top: 20px; padding: 10px; max-width: 500px; border: 2px dashed rgb(204, 204, 204); text-align: center;">Drag file here to import</div>
+
+<div id="htmlcode">
+
 <div style="margin-top:10px;">
   <label for="htmlCodeInput">Optional HTML Code:</label><br>
   <textarea id="htmlCodeInput" rows="8" style="width:100%;"></textarea>
+</div>
+
 </div>
 
   <script>
@@ -373,7 +383,7 @@ icons.appendChild(exportBtn);
       )], { type: 'text/html' });
       const a = document.createElement('a');
       a.href = URL.createObjectURL(blob);
-      a.download = 'toolbox.html';
+      a.download = 'toolbox_deluxe.html';
       a.click();
       URL.revokeObjectURL(a.href);
     }
@@ -409,7 +419,48 @@ dropzone.addEventListener("drop", (e) => {
     reader.readAsText(file);
   }
 });
-  </script>
+  
+function downloadEmpty() {
+  const blob = new Blob([document.documentElement.outerHTML.replace(
+    /let data = .*?;/,
+    'let data = [];'
+  )], { type: 'text/html' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'toolbox_deluxe_blank.html';
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
+
+
+
+
+
+
+
+
+
+
+function downloadDataOnly() {
+  let htmlContent = document.documentElement.outerHTML;
+  htmlContent = htmlContent.replace(/id="xmr"/g, 'id="xmr" style="display:none;"')
+                           .replace(/id="htmlcode"/g, 'id="htmlcode" style="display:none;"')
+                           .replace(/id="dropzone"/g, 'id="dropzone" style="display:none;"')
+                           .replace(/id="toolboxTitle"/g, 'id="toolboxTitle" style="display:none;"')
+                           .replace(/id="in"/g, 'id="in" style="display:none;"')
+                           .replace(/id="language-selector"/g, 'id="language-selector" style="display:none;"')
+                           .replace(/id="infobox"/g, 'id="infobox" style="display:none;"')
+                           .replace('<ul id="list"', '<ul id="list" data-only="true"');
+
+  const blob = new Blob([htmlContent], { type: 'text/html' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'toolbox_data_only.html';
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
+
+</script>
 
 <div id="language-selector">
     <label for="lang"></label>
@@ -418,7 +469,7 @@ dropzone.addEventListener("drop", (e) => {
     </select>
 </div>
 
-<div class="info-box" id="infoBox">Toolbox ist ein vollständig lokales, sicheres Tool zum Organisieren und Verwalten von Notizen, Links, IPFS-Dateien, kleinen Datensätzen und benutzerdefinierten Skripten – alles in einer einzigen Offline-Datei.<br>Keine Installation, keine Server, kein Tracking.<br>Verwende es als portablen Passwort-Tresor, lokalen Lesezeichen-Manager, einfachen IPFS-Gateway-Helfer, persönliche Wissensdatenbank oder leichtgewichtigen Projekt-Organizer.<br>Das Potenzial ist grenzenlos: Ersetze Tabellenkalkulationen, Textdateien oder verstreute Notizen durch eine einzige, saubere, eigenständige Lösung, die in jedem Browser läuft.<br>Deine Daten bleiben vollständig privat und unter deiner Kontrolle.</div>
+<div class="info-box" id="infobox">Toolbox ist ein vollständig lokales, sicheres Tool zum Organisieren und Verwalten von Notizen, Links, IPFS-Dateien, kleinen Datensätzen und benutzerdefinierten Skripten – alles in einer einzigen Offline-Datei.<br>Keine Installation, keine Server, kein Tracking.<br>Verwende es als portablen Passwort-Tresor, lokalen Lesezeichen-Manager, einfachen IPFS-Gateway-Helfer, persönliche Wissensdatenbank oder leichtgewichtigen Projekt-Organizer.<br>Das Potenzial ist grenzenlos: Ersetze Tabellenkalkulationen, Textdateien oder verstreute Notizen durch eine einzige, saubere, eigenständige Lösung, die in jedem Browser läuft.<br>Deine Daten bleiben vollständig privat und unter deiner Kontrolle.</div>
 
 <script>
 
@@ -434,15 +485,15 @@ var tooltips = {
     "ko": "항목 추가 (이름 + URL/CID/HTML). 항목 내보내기 (📤 또는 💾). JSON 파일을 드래그 앤 드롭으로 가져오기."
 };
 var texts = {
-    "en": "Toolbox is a fully local, secure tool for organizing and managing notes, links, IPFS files, small datasets, and custom scripts — all in a single offline file.\nNo installation, no servers, no tracking.\nUse it as a portable password vault, a local bookmark manager, a simple IPFS gateway helper, a personal knowledge base, or a lightweight project organizer.\nThe potential is endless: Replace spreadsheets, text files, or scattered notes with one clean, self-contained solution that runs in any browser.\nYour data stays fully private and under your control.",
-    "de": "Toolbox ist ein vollständig lokales, sicheres Tool zum Organisieren und Verwalten von Notizen, Links, IPFS-Dateien, kleinen Datensätzen und benutzerdefinierten Skripten – alles in einer einzigen Offline-Datei.\nKeine Installation, keine Server, kein Tracking.\nVerwende es als portablen Passwort-Tresor, lokalen Lesezeichen-Manager, einfachen IPFS-Gateway-Helfer, persönliche Wissensdatenbank oder leichtgewichtigen Projekt-Organizer.\nDas Potenzial ist grenzenlos: Ersetze Tabellenkalkulationen, Textdateien oder verstreute Notizen durch eine einzige, saubere, eigenständige Lösung, die in jedem Browser läuft.\nDeine Daten bleiben vollständig privat und unter deiner Kontrolle.",
-    "fr": "Toolbox est un outil local et sécurisé permettant d’organiser et de gérer des notes, des liens, des fichiers IPFS, de petits ensembles de données et des scripts personnalisés – le tout dans un seul fichier hors ligne.\nAucune installation, aucun serveur, aucun suivi.\nUtilisez-le comme coffre-fort de mots de passe portable, gestionnaire de favoris local, assistant IPFS, base de connaissances personnelle ou organisateur de projets léger.\nLe potentiel est infini : remplacez les feuilles de calcul, les fichiers texte ou les notes éparpillées par une solution autonome propre qui fonctionne dans n’importe quel navigateur.\nVos données restent entièrement privées et sous votre contrôle.",
-    "es": "Toolbox es una herramienta totalmente local y segura para organizar y gestionar notas, enlaces, archivos IPFS, pequeños conjuntos de datos y scripts personalizados, todo en un solo archivo sin conexión.\nSin instalación, sin servidores, sin seguimiento.\nÚsalo como un gestor de contraseñas portátil, administrador de marcadores local, asistente de puerta de enlace IPFS, base de datos personal o organizador de proyectos ligero.\nEl potencial es infinito: reemplaza hojas de cálculo, archivos de texto o notas dispersas por una única solución autónoma y limpia que funcione en cualquier navegador.\nTus datos permanecen completamente privados y bajo tu control.",
-    "pt": "Toolbox é uma ferramenta totalmente local e segura para organizar e gerenciar notas, links, arquivos IPFS, pequenos conjuntos de dados e scripts personalizados — tudo em um único arquivo offline.\nSem instalação, sem servidores, sem rastreamento.\nUse como um cofre portátil de senhas, gerenciador de favoritos local, assistente de gateway IPFS, base de conhecimento pessoal ou organizador de projetos leve.\nO potencial é infinito: substitua planilhas, arquivos de texto ou anotações dispersas por uma solução autônoma e limpa que funciona em qualquer navegador.\nSeus dados permanecem totalmente privados e sob seu controle.",
-    "zh": "Toolbox 是一个完全本地、安全的工具，用于组织和管理笔记、链接、IPFS 文件、小型数据集和自定义脚本，所有内容都集中在一个离线文件中。\n无需安装、无需服务器、无跟踪。\n可作为便携式密码保险箱、本地书签管理器、简单的 IPFS 网关助手、个人知识库或轻量级项目管理器。\n其潜力无限：用一个干净、独立的解决方案替代电子表格、文本文件或零散的笔记，适用于任何浏览器。\n您的数据将完全私密且由您掌控。",
-    "ja": "Toolbox は、メモ、リンク、IPFS ファイル、小規模なデータセット、カスタム スクリプトを 1 つのオフライン ファイル内で整理および管理するための、完全にローカルで安全なツールです。\nインストール不要、サーバー不要、追跡なし。\nポータブルなパスワード マネージャー、ローカル ブックマーク マネージャー、シンプルな IPFS ゲートウェイ ヘルパー、個人用ナレッジ ベース、軽量なプロジェクト オーガナイザーとして使用できます。\n可能性は無限大です: スプレッドシート、テキスト ファイル、または散在するメモを 1 つのクリーンで自己完結型のソリューションに置き換え、あらゆるブラウザーで実行できます。\nデータは完全にプライベートであり、完全に管理できます。",
-    "ru": "Toolbox — это полностью локальный и безопасный инструмент для организации и управления заметками, ссылками, файлами IPFS, небольшими наборами данных и пользовательскими сценариями — все это в одном автономном файле.\nБез установки, без серверов, без отслеживания.\nИспользуйте его в качестве портативного хранилища паролей, локального менеджера закладок, помощника IPFS-шлюза, личной базы знаний или легкого организатора проектов.\nПотенциал безграничен: замените таблицы, текстовые файлы или разрозненные заметки на одно чистое, автономное решение, работающее в любом браузере.\nВаши данные остаются полностью конфиденциальными и под вашим контролем.",
-    "ko": "Toolbox는 메모, 링크, IPFS 파일, 소규모 데이터 세트 및 사용자 정의 스크립트를 단일 오프라인 파일에서 구성하고 관리하기 위한 완전한 로컬 보안 도구입니다.\n설치, 서버, 추적이 필요하지 않습니다.\n휴대용 비밀번호 금고, 로컬 북마크 관리자, 간단한 IPFS 게이트웨이 도우미, 개인 지식 기반 또는 경량 프로젝트 관리자 등으로 사용할 수 있습니다.\n가능성은 무한합니다: 스프레드시트, 텍스트 파일 또는 흩어져 있는 메모를 하나의 깔끔하고 독립적인 솔루션으로 바꿔 어떤 브라우저에서도 실행할 수 있습니다.\n데이터는 완전히 비공개로 유지되며 귀하의 통제 하에 있습니다."
+    "en": "Toolbox-Deluxe is a fully local, secure tool for organizing and managing notes, links, IPFS files, small datasets, and custom scripts — all in a single offline file.\nNo installation, no servers, no tracking.\nUse it as a portable password vault, a local bookmark manager, a simple IPFS gateway helper, a personal knowledge base, or a lightweight project organizer.\nThe potential is endless: Replace spreadsheets, text files, or scattered notes with one clean, self-contained solution that runs in any browser.\nYour data stays fully private and under your control.",
+    "de": "Toolbox-Deluxe ist ein vollständig lokales, sicheres Tool zum Organisieren und Verwalten von Notizen, Links, IPFS-Dateien, kleinen Datensätzen und benutzerdefinierten Skripten – alles in einer einzigen Offline-Datei.\nKeine Installation, keine Server, kein Tracking.\nVerwende es als portablen Passwort-Tresor, lokalen Lesezeichen-Manager, einfachen IPFS-Gateway-Helfer, persönliche Wissensdatenbank oder leichtgewichtigen Projekt-Organizer.\nDas Potenzial ist grenzenlos: Ersetze Tabellenkalkulationen, Textdateien oder verstreute Notizen durch eine einzige, saubere, eigenständige Lösung, die in jedem Browser läuft.\nDeine Daten bleiben vollständig privat und unter deiner Kontrolle.",
+    "fr": "Toolbox-Deluxe est un outil local et sécurisé permettant d’organiser et de gérer des notes, des liens, des fichiers IPFS, de petits ensembles de données et des scripts personnalisés – le tout dans un seul fichier hors ligne.\nAucune installation, aucun serveur, aucun suivi.\nUtilisez-le comme coffre-fort de mots de passe portable, gestionnaire de favoris local, assistant IPFS, base de connaissances personnelle ou organisateur de projets léger.\nLe potentiel est infini : remplacez les feuilles de calcul, les fichiers texte ou les notes éparpillées par une solution autonome propre qui fonctionne dans n’importe quel navigateur.\nVos données restent entièrement privées et sous votre contrôle.",
+    "es": "Toolbox-Deluxe es una herramienta totalmente local y segura para organizar y gestionar notas, enlaces, archivos IPFS, pequeños conjuntos de datos y scripts personalizados, todo en un solo archivo sin conexión.\nSin instalación, sin servidores, sin seguimiento.\nÚsalo como un gestor de contraseñas portátil, administrador de marcadores local, asistente de puerta de enlace IPFS, base de datos personal o organizador de proyectos ligero.\nEl potencial es infinito: reemplaza hojas de cálculo, archivos de texto o notas dispersas por una única solución autónoma y limpia que funcione en cualquier navegador.\nTus datos permanecen completamente privados y bajo tu control.",
+    "pt": "Toolbox-Deluxe é uma ferramenta totalmente local e segura para organizar e gerenciar notas, links, arquivos IPFS, pequenos conjuntos de dados e scripts personalizados — tudo em um único arquivo offline.\nSem instalação, sem servidores, sem rastreamento.\nUse como um cofre portátil de senhas, gerenciador de favoritos local, assistente de gateway IPFS, base de conhecimento pessoal ou organizador de projetos leve.\nO potencial é infinito: substitua planilhas, arquivos de texto ou anotações dispersas por uma solução autônoma e limpa que funciona em qualquer navegador.\nSeus dados permanecem totalmente privados e sob seu controle.",
+    "zh": "Toolbox-Deluxe 是一个完全本地、安全的工具，用于组织和管理笔记、链接、IPFS 文件、小型数据集和自定义脚本，所有内容都集中在一个离线文件中。\n无需安装、无需服务器、无跟踪。\n可作为便携式密码保险箱、本地书签管理器、简单的 IPFS 网关助手、个人知识库或轻量级项目管理器。\n其潜力无限：用一个干净、独立的解决方案替代电子表格、文本文件或零散的笔记，适用于任何浏览器。\n您的数据将完全私密且由您掌控。",
+    "ja": "Toolbox-Deluxe は、メモ、リンク、IPFS ファイル、小規模なデータセット、カスタム スクリプトを 1 つのオフライン ファイル内で整理および管理するための、完全にローカルで安全なツールです。\nインストール不要、サーバー不要、追跡なし。\nポータブルなパスワード マネージャー、ローカル ブックマーク マネージャー、シンプルな IPFS ゲートウェイ ヘルパー、個人用ナレッジ ベース、軽量なプロジェクト オーガナイザーとして使用できます。\n可能性は無限大です: スプレッドシート、テキスト ファイル、または散在するメモを 1 つのクリーンで自己完結型のソリューションに置き換え、あらゆるブラウザーで実行できます。\nデータは完全にプライベートであり、完全に管理できます。",
+    "ru": "Toolbox-Deluxe — это полностью локальный и безопасный инструмент для организации и управления заметками, ссылками, файлами IPFS, небольшими наборами данных и пользовательскими сценариями — все это в одном автономном файле.\nБез установки, без серверов, без отслеживания.\nИспользуйте его в качестве портативного хранилища паролей, локального менеджера закладок, помощника IPFS-шлюза, личной базы знаний или легкого организатора проектов.\nПотенциал безграничен: замените таблицы, текстовые файлы или разрозненные заметки на одно чистое, автономное решение, работающее в любом браузере.\nВаши данные остаются полностью конфиденциальными и под вашим контролем.",
+    "ko": "Toolbox-Deluxe 는 메모, 링크, IPFS 파일, 소규모 데이터 세트 및 사용자 정의 스크립트를 단일 오프라인 파일에서 구성하고 관리하기 위한 완전한 로컬 보안 도구입니다.\n설치, 서버, 추적이 필요하지 않습니다.\n휴대용 비밀번호 금고, 로컬 북마크 관리자, 간단한 IPFS 게이트웨이 도우미, 개인 지식 기반 또는 경량 프로젝트 관리자 등으로 사용할 수 있습니다.\n가능성은 무한합니다: 스프레드시트, 텍스트 파일 또는 흩어져 있는 메모를 하나의 깔끔하고 독립적인 솔루션으로 바꿔 어떤 브라우저에서도 실행할 수 있습니다.\n데이터는 완전히 비공개로 유지되며 귀하의 통제 하에 있습니다."
 };
 
 function setInitialLanguage() {
@@ -450,17 +501,19 @@ function setInitialLanguage() {
     var userLang = savedLang || navigator.language.slice(0, 2).toLowerCase();
     if (!texts[userLang]) userLang = "en";
     document.getElementById('lang').value = userLang;
-    document.getElementById('infoBox').innerText = texts[userLang];
+    document.getElementById('infobox').innerText = texts[userLang];
     document.getElementById('toolboxTitle').title = tooltips[userLang];
 }
 
 function changeLanguage(lang) {
-    document.getElementById('infoBox').innerText = texts[lang];
+    document.getElementById('infobox').innerText = texts[lang];
     localStorage.setItem('toolboxLang', lang);
 }
 
 document.addEventListener("DOMContentLoaded", setInitialLanguage);
 </script>
+
+<div id="xmr">
 
 <div style="margin-top:50px;background: white;">
     <h2 style="margin-top: 0;">Support</h2>
@@ -475,8 +528,19 @@ document.addEventListener("DOMContentLoaded", setInitialLanguage);
         <a href="mailto:6jkqx20d7@mozmail.com">6jkqx20d7@mozmail.com</a>
 </div>
 
+</div>
 
 
 
 
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    if (document.getElementById('list')?.getAttribute('data-only') === 'true') {
+        document.querySelectorAll('#list li').forEach(li => {
+            const index = Array.prototype.indexOf.call(li.parentNode.children, li);
+            li.ondblclick = () => openEntry(data[index]);
+        });
+    }
+});
+</script>
 </body></html>
