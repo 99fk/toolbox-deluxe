@@ -1,4 +1,4 @@
-<html><head>
+<html><head></head><body><div id="in-page-channel-node-id" data-channel-name="in_page_channel_gCuMl8"></div>
   <meta charset="UTF-8">
   <title>Toolbox Deluxe</title>
   <style>
@@ -31,19 +31,195 @@
 }
 
 </style>
-</head>
-<body>
+<style>@keyframes slide-in-one-tap {
+  from {
+    transform: translateY(80px);
+  }
+  to {
+    transform: translateY(0px);
+  }
+}
+
+.trust-hide-gracefully {
+  opacity: 0;
+}
+
+.trust-wallet-one-tap .hidden {
+    display: none;
+  }
+
+.trust-wallet-one-tap .semibold {
+    font-weight: 500;
+  }
+
+.trust-wallet-one-tap .binance-plex {
+    font-family: 'Binance';
+  }
+
+.trust-wallet-one-tap .rounded-full {
+    border-radius: 50%;
+  }
+
+.trust-wallet-one-tap .flex {
+    display: flex;
+  }
+
+.trust-wallet-one-tap .flex-col {
+    flex-direction: column;
+  }
+
+.trust-wallet-one-tap .items-center {
+    align-items: center;
+  }
+
+.trust-wallet-one-tap .space-between {
+    justify-content: space-between;
+  }
+
+.trust-wallet-one-tap .justify-center {
+    justify-content: center;
+  }
+
+.trust-wallet-one-tap .w-full {
+    width: 100%;
+  }
+
+.trust-wallet-one-tap .box {
+    transition: all 0.5s cubic-bezier(0, 0, 0, 1.43);
+    animation: slide-in-one-tap 0.5s cubic-bezier(0, 0, 0, 1.43);
+    width: 384px;
+    border-radius: 15px;
+    background: #fff;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    z-index: 1020;
+  }
+
+.trust-wallet-one-tap .header {
+    gap: 15px;
+    border-bottom: 1px solid #e6e6e6;
+    padding: 10px 18px;
+  }
+
+.trust-wallet-one-tap .header .left-items {
+      gap: 15px;
+    }
+
+.trust-wallet-one-tap .header .title {
+      color: #1e2329;
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 28px;
+    }
+
+.trust-wallet-one-tap .header .subtitle {
+      color: #474d57;
+      font-size: 14px;
+      line-height: 20px;
+    }
+
+.trust-wallet-one-tap .header .close {
+      color: #1e2329;
+      cursor: pointer;
+    }
+
+.trust-wallet-one-tap .body {
+    padding: 9px 18px;
+    gap: 10px;
+  }
+
+.trust-wallet-one-tap .body .right-items {
+      gap: 10px;
+      width: 100%;
+    }
+
+.trust-wallet-one-tap .body .right-items .wallet-title {
+        color: #1e2329;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 20px;
+      }
+
+.trust-wallet-one-tap .body .right-items .wallet-subtitle {
+        color: #474d57;
+        font-size: 14px;
+        line-height: 20px;
+      }
+
+.trust-wallet-one-tap .connect-indicator {
+    gap: 15px;
+    padding: 8px 0;
+  }
+
+.trust-wallet-one-tap .connect-indicator .flow-icon {
+      color: #474d57;
+    }
+
+.trust-wallet-one-tap .loading-color {
+    color: #fff;
+  }
+
+.trust-wallet-one-tap .button {
+    border-radius: 50px;
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    background-color: rgb(5, 0, 255);
+    border-color: rgb(229, 231, 235);
+    cursor: pointer;
+    text-align: center;
+    height: 45px;
+  }
+
+.trust-wallet-one-tap .button .button-text {
+      color: #fff;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 20px;
+    }
+
+.trust-wallet-one-tap .footer {
+    margin: 20px 30px;
+  }
+
+.trust-wallet-one-tap .check-icon {
+    color: #fff;
+  }
+
+@font-face {
+  font-family: 'Binance';
+  src: url(chrome-extension://egjidjbpglichdcondbcbdnbeeppgdph/fonts/BinancePlex-Regular.otf) format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Binance';
+  src: url(chrome-extension://egjidjbpglichdcondbcbdnbeeppgdph/fonts/BinancePlex-Medium.otf) format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Binance';
+  src: url(chrome-extension://egjidjbpglichdcondbcbdnbeeppgdph/fonts/BinancePlex-SemiBold.otf) format('opentype');
+  font-weight: 600;
+  font-style: normal;
+}
+</style>
+
 <h1 id="toolboxTitle" title="Füge Einträge hinzu (Name + URL/CID/HTML). Exportiere Einträge (📤 oder 💾). Importiere JSON per Drag &amp; Drop.">Toolbox Deluxe</h1>
 <iframe id="description" src="description.html" scrolling="no" style="display: none; width: 100%; border: none;"></iframe>
   <div class="input-group">
     <input type="text" id="nameInput" placeholder="Name">
     <input type="text" id="urlInput" placeholder="URL">
     <input type="text" id="cidInput" placeholder="IPFS CID (optional)">
-    <input type="text" id="descriptionInput" placeholder="Beschreibung (optional)" maxlength="100">
+    <input type="text" id="descriptionInput" placeholder="Description (optional)" maxlength="100">
     <button onclick="addEntry()" style="font-size: 16px;">➕ Add</button>
     <button onclick="download()" style="font-size: 16px;">💾 Export</button>
   </div>
-  <ul id="list"><li><span class="entry-name">Bat To Exe Converter <span class="entry-description">Windows application which wraps batch files in executable files.</span></span><span class="icons"><button class="icon-btn" title="Open entry (URL, IPFS or HTML)">▶️</button><button class="icon-btn" title="Edit">✏️</button><button class="icon-btn" title="Copy URL to clipboard">📋</button><button class="icon-btn" title="Export entry as JSON file">📤</button><button class="icon-btn" title="Delete">🗑️</button></span></li><li><span class="entry-name">HTML/JS Preview</span><span class="icons"><button class="icon-btn" title="Open entry (URL, IPFS or HTML)">▶️</button><button class="icon-btn" title="Edit">✏️</button><button class="icon-btn" title="Copy URL to clipboard">📋</button><button class="icon-btn" title="Export entry as JSON file">📤</button><button class="icon-btn" title="Delete">🗑️</button></span></li><li><span class="entry-name">KeeWeb <span class="entry-description">A version of KeeWeb (https://keeweb.info/) hosted on IPFS</span></span><span class="icons"><button class="icon-btn" title="Open entry (URL, IPFS or HTML)">▶️</button><button class="icon-btn" title="Edit">✏️</button><button class="icon-btn" title="Copy URL to clipboard">📋</button><button class="icon-btn" title="Export entry as JSON file">📤</button><button class="icon-btn" title="Delete">🗑️</button></span></li><li><span class="entry-name">PGP Tool <span class="entry-description">Simple client-side PGP key generator, encryption and decryption tool.</span></span><span class="icons"><button class="icon-btn" title="Open entry (URL, IPFS or HTML)">▶️</button><button class="icon-btn" title="Edit">✏️</button><button class="icon-btn" title="Copy URL to clipboard">📋</button><button class="icon-btn" title="Export entry as JSON file">📤</button><button class="icon-btn" title="Delete">🗑️</button></span></li><li><span class="entry-name">Checksum Calculator</span><span class="icons"><button class="icon-btn" title="Open entry (URL, IPFS or HTML)">▶️</button><button class="icon-btn" title="Edit">✏️</button><button class="icon-btn" title="Copy URL to clipboard">📋</button><button class="icon-btn" title="Export entry as JSON file">📤</button><button class="icon-btn" title="Delete">🗑️</button></span></li><li><span class="entry-name">Ps1 To Exe <span class="entry-description">Windows application which wraps Ps1 files in executable files.</span></span><span class="icons"><button class="icon-btn" title="Open entry (URL, IPFS or HTML)">▶️</button><button class="icon-btn" title="Edit">✏️</button><button class="icon-btn" title="Copy URL to clipboard">📋</button><button class="icon-btn" title="Export entry as JSON file">📤</button><button class="icon-btn" title="Delete">🗑️</button></span></li><li><span class="entry-name">Link to google.com <span class="entry-description">A simple link to google.com</span></span><span class="icons"><button class="icon-btn" title="Open entry (URL, IPFS or HTML)">▶️</button><button class="icon-btn" title="Edit">✏️</button><button class="icon-btn" title="Copy URL to clipboard">📋</button><button class="icon-btn" title="Export entry as JSON file">📤</button><button class="icon-btn" title="Delete">🗑️</button></span></li><li><span class="entry-name">Vbs To Exe <span class="entry-description">Windows application which wraps Vbs files in executable files.</span></span><span class="icons"><button class="icon-btn" title="Open entry (URL, IPFS or HTML)">▶️</button><button class="icon-btn" title="Edit">✏️</button><button class="icon-btn" title="Copy URL to clipboard">📋</button><button class="icon-btn" title="Export entry as JSON file">📤</button><button class="icon-btn" title="Delete">🗑️</button></span></li></ul>
+  <ul id="list"><li><span class="entry-name">Bat To Exe Converter <span class="entry-description">Windows application which wraps batch files in executable files.</span></span><span class="icons"><button class="icon-btn" title="Open entry (URL, IPFS or HTML)">▶️</button><button class="icon-btn" title="Edit">✏️</button><button class="icon-btn" title="Copy URL to clipboard">📋</button><button class="icon-btn" title="Export entry as JSON file">📤</button><button class="icon-btn" title="Delete">🗑️</button></span></li><li><span class="entry-name">HTML/JS Preview</span><span class="icons"><button class="icon-btn" title="Open entry (URL, IPFS or HTML)">▶️</button><button class="icon-btn" title="Edit">✏️</button><button class="icon-btn" title="Copy URL to clipboard">📋</button><button class="icon-btn" title="Export entry as JSON file">📤</button><button class="icon-btn" title="Delete">🗑️</button></span></li><li><span class="entry-name">KeeWeb <span class="entry-description">A version of KeeWeb (https://keeweb.info/) hosted on IPFS</span></span><span class="icons"><button class="icon-btn" title="Open entry (URL, IPFS or HTML)">▶️</button><button class="icon-btn" title="Edit">✏️</button><button class="icon-btn" title="Copy URL to clipboard">📋</button><button class="icon-btn" title="Export entry as JSON file">📤</button><button class="icon-btn" title="Delete">🗑️</button></span></li><li><span class="entry-name">PGP Tool <span class="entry-description">Simple client-side PGP key generator, encryption and decryption tool.</span></span><span class="icons"><button class="icon-btn" title="Open entry (URL, IPFS or HTML)">▶️</button><button class="icon-btn" title="Edit">✏️</button><button class="icon-btn" title="Copy URL to clipboard">📋</button><button class="icon-btn" title="Export entry as JSON file">📤</button><button class="icon-btn" title="Delete">🗑️</button></span></li><li><span class="entry-name">Checksum Calculator</span><span class="icons"><button class="icon-btn" title="Open entry (URL, IPFS or HTML)">▶️</button><button class="icon-btn" title="Edit">✏️</button><button class="icon-btn" title="Copy URL to clipboard">📋</button><button class="icon-btn" title="Export entry as JSON file">📤</button><button class="icon-btn" title="Delete">🗑️</button></span></li><li><span class="entry-name">Ps1 To Exe <span class="entry-description">Windows application which wraps Ps1 files in executable files.</span></span><span class="icons"><button class="icon-btn" title="Open entry (URL, IPFS or HTML)">▶️</button><button class="icon-btn" title="Edit">✏️</button><button class="icon-btn" title="Copy URL to clipboard">📋</button><button class="icon-btn" title="Export entry as JSON file">📤</button><button class="icon-btn" title="Delete">🗑️</button></span></li><li><span class="entry-name">Link to google.com <span class="entry-description">A simple link to google.com</span></span><span class="icons"><button class="icon-btn" title="Open entry (URL, IPFS or HTML)">▶️</button><button class="icon-btn" title="Edit">✏️</button><button class="icon-btn" title="Copy URL to clipboard">📋</button><button class="icon-btn" title="Export entry as JSON file">📤</button><button class="icon-btn" title="Delete">🗑️</button></span></li><li><span class="entry-name">Vbs To Exe <span class="entry-description">Windows application which wraps Vbs files in executable files.</span></span><span class="icons"><button class="icon-btn" title="Open entry (URL, IPFS or HTML)">▶️</button><button class="icon-btn" title="Edit">✏️</button><button class="icon-btn" title="Copy URL to clipboard">📋</button><button class="icon-btn" title="Export entry as JSON file">📤</button><button class="icon-btn" title="Delete">🗑️</button></span></li><li><span class="entry-name">Zipper <span class="entry-description">File compression web app</span></span><span class="icons"><button class="icon-btn" title="Open entry (URL, IPFS or HTML)">▶️</button><button class="icon-btn" title="Edit">✏️</button><button class="icon-btn" title="Copy URL to clipboard">📋</button><button class="icon-btn" title="Export entry as JSON file">📤</button><button class="icon-btn" title="Delete">🗑️</button></span></li><li><span class="entry-name">Base64 Encoder/Decoder</span><span class="icons"><button class="icon-btn" title="Open entry (URL, IPFS or HTML)">▶️</button><button class="icon-btn" title="Edit">✏️</button><button class="icon-btn" title="Copy URL to clipboard">📋</button><button class="icon-btn" title="Export entry as JSON file">📤</button><button class="icon-btn" title="Delete">🗑️</button></span></li></ul>
   <div id="dropzone" style="margin-top: 20px; padding: 10px; max-width: 500px; border: 2px dashed rgb(204, 204, 204); text-align: center;">Drag file here to import</div>
 <div style="margin-top:10px;">
   <label for="htmlCodeInput">Optional HTML Code:</label><br>
@@ -51,7 +227,7 @@
 </div>
 
   <script>
-    let data = [{"name":"Bat To Exe Converter","url":"","cid":"QmPBp7wBSC9GukPUcp7LXFCGXBvc2e45PUfWUbCJzuLG65?filename=Bat_To_Exe_Converter.zip","htmlCode":"","description":"Windows application which wraps batch files in executable files."},{"name":"HTML/JS Preview","url":"","cid":"","htmlCode":"PCFET0NUWVBFIGh0bWw+CjxodG1sIGxhbmc9ImRlIj4KPGhlYWQ+CiAgPG1ldGEgY2hhcnNldD0iVVRGLTgiPgogIDx0aXRsZT5IVE1MICsgSlMgQXVzZsO8aHJlbjwvdGl0bGU+CiAgPHN0eWxlPgogICAgYm9keSB7CiAgICAgIGZvbnQtZmFtaWx5OiBzYW5zLXNlcmlmOwogICAgICBtYXgtd2lkdGg6IDEwMDBweDsKICAgICAgbWFyZ2luOiBhdXRvOwogICAgICBwYWRkaW5nOiAyMHB4OwogICAgfQogICAgdGV4dGFyZWEgewogICAgICB3aWR0aDogMTAwJTsKICAgICAgaGVpZ2h0OiAzMDBweDsKICAgICAgZm9udC1mYW1pbHk6IG1vbm9zcGFjZTsKICAgICAgZm9udC1zaXplOiAxNHB4OwogICAgICBwYWRkaW5nOiAxMHB4OwogICAgICBib3gtc2l6aW5nOiBib3JkZXItYm94OwogICAgfQogICAgYnV0dG9uIHsKICAgICAgbWFyZ2luOiAxMHB4IDA7CiAgICAgIHBhZGRpbmc6IDEwcHg7CiAgICAgIGZvbnQtc2l6ZTogMTZweDsKICAgICAgd2lkdGg6IDEwMCU7CiAgICB9CiAgICBpZnJhbWUgewogICAgICB3aWR0aDogMTAwJTsKICAgICAgaGVpZ2h0OiA0MDBweDsKICAgICAgYm9yZGVyOiAxcHggc29saWQgI2NjYzsKICAgIH0KICA8L3N0eWxlPgo8L2hlYWQ+Cjxib2R5PgogIDxoMT5FaWdlbmUgSFRNTC1EYXRlaSBhdXNmw7xocmVuPC9oMT4KICA8cD5Gw7xnZSBoaWVyIGJlbGllYmlnZW4gSFRNTC0sIENTUy0gdW5kIEphdmFTY3JpcHQtQ29kZSBlaW4g4oCTIGVyIHdpcmQgaW0gaWZyYW1lIGRhcnVudGVyIGF1c2dlZsO8aHJ0LjwvcD4KCiAgPHRleHRhcmVhIGlkPSJjb2RlIj48IURPQ1RZUEUgaHRtbD4KPGh0bWw+CjxoZWFkPgogIDxzdHlsZT4KICAgIGJvZHkgeyBiYWNrZ3JvdW5kOiAjMjIyOyBjb2xvcjogd2hpdGU7IGZvbnQtZmFtaWx5OiBzYW5zLXNlcmlmOyB0ZXh0LWFsaWduOiBjZW50ZXI7IHBhZGRpbmctdG9wOiAxMDBweDsgfQogICAgYnV0dG9uIHsgcGFkZGluZzogMTBweCAyMHB4OyBmb250LXNpemU6IDE2cHg7IH0KICA8L3N0eWxlPgo8L2hlYWQ+Cjxib2R5PgogIDxoMT5IYWxsbyBhdXMgZGVtIGlmcmFtZSE8L2gxPgogIDxidXR0b24gb25jbGljaz0iYWxlcnQoJ0tsaWNrIGZ1bmt0aW9uaWVydCEnKSI+S2xpY2sgbWljaDwvYnV0dG9uPgo8L2JvZHk+CjwvaHRtbD4KICA8L3RleHRhcmVhPgoKICA8YnV0dG9uIG9uY2xpY2s9InJ1bkhUTUwoKSI+U3RhcnQ8L2J1dHRvbj4KCiAgPGgyPkF1c2dhYmU6PC9oMj4KICA8aWZyYW1lIGlkPSJwcmV2aWV3Ij48L2lmcmFtZT4KCiAgPHNjcmlwdD4KICAgIGZ1bmN0aW9uIHJ1bkhUTUwoKSB7CiAgICAgIGNvbnN0IGNvZGUgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgiY29kZSIpLnZhbHVlOwogICAgICBjb25zdCBpZnJhbWUgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgicHJldmlldyIpOwogICAgICBjb25zdCBkb2MgPSBpZnJhbWUuY29udGVudERvY3VtZW50IHx8IGlmcmFtZS5jb250ZW50V2luZG93LmRvY3VtZW50OwogICAgICBkb2Mub3BlbigpOwogICAgICBkb2Mud3JpdGUoY29kZSk7CiAgICAgIGRvYy5jbG9zZSgpOwogICAgfQogIDwvc2NyaXB0Pgo8L2JvZHk+CjwvaHRtbD4K"},{"name":"KeeWeb","url":"","cid":"QmPhGJGXK5PyA6fPe72PgZeVGWeydVVtfUMGA7f8BjzupP","htmlCode":"","description":"A version of KeeWeb (https://keeweb.info/) hosted on IPFS"},{"name":"PGP Tool","url":"","cid":"QmaoCDuDZSPZthu4ewEXjyVw94jqNhV49DvZozgDu41gqT","htmlCode":"","description":"Simple client-side PGP key generator, encryption and decryption tool."},{"name":"Checksum Calculator","url":"","cid":"","htmlCode":"CjwhRE9DVFlQRSBodG1sPgo8aHRtbCBsYW5nPSJlbiI+CjxoZWFkPgogICAgPG1ldGEgY2hhcnNldD0iVVRGLTgiPgogICAgPHRpdGxlPkNoZWNrc3VtIENhbGN1bGF0b3IgKFN0YW5kYWxvbmUpPC90aXRsZT4KICAgIDxzdHlsZT4KICAgICAgICBib2R5IHsgZm9udC1mYW1pbHk6IHNhbnMtc2VyaWY7IHBhZGRpbmc6IDIwcHg7IH0KICAgICAgICBoMSB7IGZvbnQtc2l6ZTogMjRweDsgfQogICAgICAgIHRleHRhcmVhIHsgd2lkdGg6IDEwMCU7IGhlaWdodDogMTAwcHg7IG1hcmdpbi1ib3R0b206IDEwcHg7IH0KICAgICAgICBpbnB1dFt0eXBlPSJmaWxlIl0geyBtYXJnaW4tYm90dG9tOiAxMHB4OyB9CiAgICAgICAgcHJlIHsgYmFja2dyb3VuZDogI2YwZjBmMDsgcGFkZGluZzogMTBweDsgYm9yZGVyLXJhZGl1czogNXB4OyB9CiAgICA8L3N0eWxlPgo8L2hlYWQ+Cjxib2R5PgogICAgPGgxPkNoZWNrc3VtIENhbGN1bGF0b3I8L2gxPgogICAgPHA+RW50ZXIgdGV4dCBvciBzZWxlY3QgYSBmaWxlIHRvIGNhbGN1bGF0ZSBjaGVja3N1bXM6PC9wPgogICAgPHRleHRhcmVhIGlkPSJ0ZXh0SW5wdXQiIHBsYWNlaG9sZGVyPSJFbnRlciB0ZXh0IGhlcmUuLi4iPjwvdGV4dGFyZWE+CiAgICA8YnI+CiAgICA8aW5wdXQgdHlwZT0iZmlsZSIgaWQ9ImZpbGVJbnB1dCI+CiAgICA8YnI+CiAgICA8YnV0dG9uIG9uY2xpY2s9ImNhbGN1bGF0ZUNoZWNrc3VtcygpIj5DYWxjdWxhdGUgQ2hlY2tzdW1zPC9idXR0b24+CiAgICA8aDI+UmVzdWx0czo8L2gyPgogICAgPHByZSBpZD0icmVzdWx0Ij5ObyBkYXRhIHlldC48L3ByZT4KCiAgICA8c2NyaXB0PgogICAgYXN5bmMgZnVuY3Rpb24gY2FsY3VsYXRlSGFzaChhbGdvcml0aG0sIGRhdGEpIHsKICAgICAgICB0cnkgewogICAgICAgICAgICBjb25zdCBidWZmZXIgPSBhd2FpdCBjcnlwdG8uc3VidGxlLmRpZ2VzdChhbGdvcml0aG0sIGRhdGEpOwogICAgICAgICAgICByZXR1cm4gQXJyYXkuZnJvbShuZXcgVWludDhBcnJheShidWZmZXIpKQogICAgICAgICAgICAgICAgLm1hcChiID0+IGIudG9TdHJpbmcoMTYpLnBhZFN0YXJ0KDIsICcwJykpCiAgICAgICAgICAgICAgICAuam9pbignJyk7CiAgICAgICAgfSBjYXRjaCAoZSkgewogICAgICAgICAgICByZXR1cm4gIk5vdCBzdXBwb3J0ZWQgaW4gdGhpcyBicm93c2VyIjsKICAgICAgICB9CiAgICB9CgogICAgYXN5bmMgZnVuY3Rpb24gY2FsY3VsYXRlQ2hlY2tzdW1zKCkgewogICAgICAgIGNvbnN0IHJlc3VsdCA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdyZXN1bHQnKTsKICAgICAgICBsZXQgaW5wdXQgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgndGV4dElucHV0JykudmFsdWU7CiAgICAgICAgbGV0IGZpbGUgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnZmlsZUlucHV0JykuZmlsZXNbMF07CiAgICAgICAgbGV0IGRhdGE7CgogICAgICAgIGlmIChmaWxlKSB7CiAgICAgICAgICAgIGRhdGEgPSBhd2FpdCBmaWxlLmFycmF5QnVmZmVyKCk7CiAgICAgICAgfSBlbHNlIGlmIChpbnB1dCkgewogICAgICAgICAgICBkYXRhID0gbmV3IFRleHRFbmNvZGVyKCkuZW5jb2RlKGlucHV0KTsKICAgICAgICB9IGVsc2UgewogICAgICAgICAgICByZXN1bHQudGV4dENvbnRlbnQgPSAiUGxlYXNlIGVudGVyIHRleHQgb3Igc2VsZWN0IGEgZmlsZS4iOwogICAgICAgICAgICByZXR1cm47CiAgICAgICAgfQoKICAgICAgICByZXN1bHQudGV4dENvbnRlbnQgPSAiQ2FsY3VsYXRpbmcuLi5cbiI7CgogICAgICAgIGxldCBvdXRwdXQgPSAiIjsKICAgICAgICBjb25zdCBhbGdvcml0aG1zID0gWyJTSEEtMSIsICJTSEEtMjU2IiwgIlNIQS0zODQiLCAiU0hBLTUxMiJdOwogICAgICAgIGZvciAobGV0IGFsZ28gb2YgYWxnb3JpdGhtcykgewogICAgICAgICAgICBsZXQgaGFzaCA9IGF3YWl0IGNhbGN1bGF0ZUhhc2goYWxnbywgZGF0YSk7CiAgICAgICAgICAgIG91dHB1dCArPSBhbGdvICsgIjogIiArIGhhc2ggKyAiXG4iOwogICAgICAgIH0KICAgICAgICByZXN1bHQudGV4dENvbnRlbnQgPSBvdXRwdXQ7CiAgICB9CiAgICA8L3NjcmlwdD4KPC9ib2R5Pgo8L2h0bWw+"},{"name":"Ps1 To Exe","url":"","cid":"QmXKxbBygqyTmW7XCWJC4kK378VUGVqnk5oYXGtfdyaYXH?filename=Ps1_To_Exe.zip","htmlCode":"","description":"Windows application which wraps Ps1 files in executable files."},{"name":"Link to google.com","url":"https://www.google.com","cid":"","htmlCode":"","description":"A simple link to google.com"},{"name":"Vbs To Exe","url":"","cid":"QmWmtG7pbaUqJHknDSpu9JYXQu73EBKGzgEDLxXMbjuKT8?filename=Vbs_To_Exe.zip","htmlCode":"","description":"Windows application which wraps Vbs files in executable files."}];
+    let data = [{"name":"Bat To Exe Converter","url":"","cid":"QmPBp7wBSC9GukPUcp7LXFCGXBvc2e45PUfWUbCJzuLG65?filename=Bat_To_Exe_Converter.zip","htmlCode":"","description":"Windows application which wraps batch files in executable files."},{"name":"HTML/JS Preview","url":"","cid":"","htmlCode":"PCFET0NUWVBFIGh0bWw+CjxodG1sIGxhbmc9ImRlIj4KPGhlYWQ+CiAgPG1ldGEgY2hhcnNldD0iVVRGLTgiPgogIDx0aXRsZT5IVE1MICsgSlMgQXVzZsO8aHJlbjwvdGl0bGU+CiAgPHN0eWxlPgogICAgYm9keSB7CiAgICAgIGZvbnQtZmFtaWx5OiBzYW5zLXNlcmlmOwogICAgICBtYXgtd2lkdGg6IDEwMDBweDsKICAgICAgbWFyZ2luOiBhdXRvOwogICAgICBwYWRkaW5nOiAyMHB4OwogICAgfQogICAgdGV4dGFyZWEgewogICAgICB3aWR0aDogMTAwJTsKICAgICAgaGVpZ2h0OiAzMDBweDsKICAgICAgZm9udC1mYW1pbHk6IG1vbm9zcGFjZTsKICAgICAgZm9udC1zaXplOiAxNHB4OwogICAgICBwYWRkaW5nOiAxMHB4OwogICAgICBib3gtc2l6aW5nOiBib3JkZXItYm94OwogICAgfQogICAgYnV0dG9uIHsKICAgICAgbWFyZ2luOiAxMHB4IDA7CiAgICAgIHBhZGRpbmc6IDEwcHg7CiAgICAgIGZvbnQtc2l6ZTogMTZweDsKICAgICAgd2lkdGg6IDEwMCU7CiAgICB9CiAgICBpZnJhbWUgewogICAgICB3aWR0aDogMTAwJTsKICAgICAgaGVpZ2h0OiA0MDBweDsKICAgICAgYm9yZGVyOiAxcHggc29saWQgI2NjYzsKICAgIH0KICA8L3N0eWxlPgo8L2hlYWQ+Cjxib2R5PgogIDxoMT5FaWdlbmUgSFRNTC1EYXRlaSBhdXNmw7xocmVuPC9oMT4KICA8cD5Gw7xnZSBoaWVyIGJlbGllYmlnZW4gSFRNTC0sIENTUy0gdW5kIEphdmFTY3JpcHQtQ29kZSBlaW4g4oCTIGVyIHdpcmQgaW0gaWZyYW1lIGRhcnVudGVyIGF1c2dlZsO8aHJ0LjwvcD4KCiAgPHRleHRhcmVhIGlkPSJjb2RlIj48IURPQ1RZUEUgaHRtbD4KPGh0bWw+CjxoZWFkPgogIDxzdHlsZT4KICAgIGJvZHkgeyBiYWNrZ3JvdW5kOiAjMjIyOyBjb2xvcjogd2hpdGU7IGZvbnQtZmFtaWx5OiBzYW5zLXNlcmlmOyB0ZXh0LWFsaWduOiBjZW50ZXI7IHBhZGRpbmctdG9wOiAxMDBweDsgfQogICAgYnV0dG9uIHsgcGFkZGluZzogMTBweCAyMHB4OyBmb250LXNpemU6IDE2cHg7IH0KICA8L3N0eWxlPgo8L2hlYWQ+Cjxib2R5PgogIDxoMT5IYWxsbyBhdXMgZGVtIGlmcmFtZSE8L2gxPgogIDxidXR0b24gb25jbGljaz0iYWxlcnQoJ0tsaWNrIGZ1bmt0aW9uaWVydCEnKSI+S2xpY2sgbWljaDwvYnV0dG9uPgo8L2JvZHk+CjwvaHRtbD4KICA8L3RleHRhcmVhPgoKICA8YnV0dG9uIG9uY2xpY2s9InJ1bkhUTUwoKSI+U3RhcnQ8L2J1dHRvbj4KCiAgPGgyPkF1c2dhYmU6PC9oMj4KICA8aWZyYW1lIGlkPSJwcmV2aWV3Ij48L2lmcmFtZT4KCiAgPHNjcmlwdD4KICAgIGZ1bmN0aW9uIHJ1bkhUTUwoKSB7CiAgICAgIGNvbnN0IGNvZGUgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgiY29kZSIpLnZhbHVlOwogICAgICBjb25zdCBpZnJhbWUgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgicHJldmlldyIpOwogICAgICBjb25zdCBkb2MgPSBpZnJhbWUuY29udGVudERvY3VtZW50IHx8IGlmcmFtZS5jb250ZW50V2luZG93LmRvY3VtZW50OwogICAgICBkb2Mub3BlbigpOwogICAgICBkb2Mud3JpdGUoY29kZSk7CiAgICAgIGRvYy5jbG9zZSgpOwogICAgfQogIDwvc2NyaXB0Pgo8L2JvZHk+CjwvaHRtbD4K"},{"name":"KeeWeb","url":"","cid":"QmPhGJGXK5PyA6fPe72PgZeVGWeydVVtfUMGA7f8BjzupP","htmlCode":"","description":"A version of KeeWeb (https://keeweb.info/) hosted on IPFS"},{"name":"PGP Tool","url":"","cid":"QmaoCDuDZSPZthu4ewEXjyVw94jqNhV49DvZozgDu41gqT","htmlCode":"","description":"Simple client-side PGP key generator, encryption and decryption tool."},{"name":"Checksum Calculator","url":"","cid":"","htmlCode":"CjwhRE9DVFlQRSBodG1sPgo8aHRtbCBsYW5nPSJlbiI+CjxoZWFkPgogICAgPG1ldGEgY2hhcnNldD0iVVRGLTgiPgogICAgPHRpdGxlPkNoZWNrc3VtIENhbGN1bGF0b3IgKFN0YW5kYWxvbmUpPC90aXRsZT4KICAgIDxzdHlsZT4KICAgICAgICBib2R5IHsgZm9udC1mYW1pbHk6IHNhbnMtc2VyaWY7IHBhZGRpbmc6IDIwcHg7IH0KICAgICAgICBoMSB7IGZvbnQtc2l6ZTogMjRweDsgfQogICAgICAgIHRleHRhcmVhIHsgd2lkdGg6IDEwMCU7IGhlaWdodDogMTAwcHg7IG1hcmdpbi1ib3R0b206IDEwcHg7IH0KICAgICAgICBpbnB1dFt0eXBlPSJmaWxlIl0geyBtYXJnaW4tYm90dG9tOiAxMHB4OyB9CiAgICAgICAgcHJlIHsgYmFja2dyb3VuZDogI2YwZjBmMDsgcGFkZGluZzogMTBweDsgYm9yZGVyLXJhZGl1czogNXB4OyB9CiAgICA8L3N0eWxlPgo8L2hlYWQ+Cjxib2R5PgogICAgPGgxPkNoZWNrc3VtIENhbGN1bGF0b3I8L2gxPgogICAgPHA+RW50ZXIgdGV4dCBvciBzZWxlY3QgYSBmaWxlIHRvIGNhbGN1bGF0ZSBjaGVja3N1bXM6PC9wPgogICAgPHRleHRhcmVhIGlkPSJ0ZXh0SW5wdXQiIHBsYWNlaG9sZGVyPSJFbnRlciB0ZXh0IGhlcmUuLi4iPjwvdGV4dGFyZWE+CiAgICA8YnI+CiAgICA8aW5wdXQgdHlwZT0iZmlsZSIgaWQ9ImZpbGVJbnB1dCI+CiAgICA8YnI+CiAgICA8YnV0dG9uIG9uY2xpY2s9ImNhbGN1bGF0ZUNoZWNrc3VtcygpIj5DYWxjdWxhdGUgQ2hlY2tzdW1zPC9idXR0b24+CiAgICA8aDI+UmVzdWx0czo8L2gyPgogICAgPHByZSBpZD0icmVzdWx0Ij5ObyBkYXRhIHlldC48L3ByZT4KCiAgICA8c2NyaXB0PgogICAgYXN5bmMgZnVuY3Rpb24gY2FsY3VsYXRlSGFzaChhbGdvcml0aG0sIGRhdGEpIHsKICAgICAgICB0cnkgewogICAgICAgICAgICBjb25zdCBidWZmZXIgPSBhd2FpdCBjcnlwdG8uc3VidGxlLmRpZ2VzdChhbGdvcml0aG0sIGRhdGEpOwogICAgICAgICAgICByZXR1cm4gQXJyYXkuZnJvbShuZXcgVWludDhBcnJheShidWZmZXIpKQogICAgICAgICAgICAgICAgLm1hcChiID0+IGIudG9TdHJpbmcoMTYpLnBhZFN0YXJ0KDIsICcwJykpCiAgICAgICAgICAgICAgICAuam9pbignJyk7CiAgICAgICAgfSBjYXRjaCAoZSkgewogICAgICAgICAgICByZXR1cm4gIk5vdCBzdXBwb3J0ZWQgaW4gdGhpcyBicm93c2VyIjsKICAgICAgICB9CiAgICB9CgogICAgYXN5bmMgZnVuY3Rpb24gY2FsY3VsYXRlQ2hlY2tzdW1zKCkgewogICAgICAgIGNvbnN0IHJlc3VsdCA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdyZXN1bHQnKTsKICAgICAgICBsZXQgaW5wdXQgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgndGV4dElucHV0JykudmFsdWU7CiAgICAgICAgbGV0IGZpbGUgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnZmlsZUlucHV0JykuZmlsZXNbMF07CiAgICAgICAgbGV0IGRhdGE7CgogICAgICAgIGlmIChmaWxlKSB7CiAgICAgICAgICAgIGRhdGEgPSBhd2FpdCBmaWxlLmFycmF5QnVmZmVyKCk7CiAgICAgICAgfSBlbHNlIGlmIChpbnB1dCkgewogICAgICAgICAgICBkYXRhID0gbmV3IFRleHRFbmNvZGVyKCkuZW5jb2RlKGlucHV0KTsKICAgICAgICB9IGVsc2UgewogICAgICAgICAgICByZXN1bHQudGV4dENvbnRlbnQgPSAiUGxlYXNlIGVudGVyIHRleHQgb3Igc2VsZWN0IGEgZmlsZS4iOwogICAgICAgICAgICByZXR1cm47CiAgICAgICAgfQoKICAgICAgICByZXN1bHQudGV4dENvbnRlbnQgPSAiQ2FsY3VsYXRpbmcuLi5cbiI7CgogICAgICAgIGxldCBvdXRwdXQgPSAiIjsKICAgICAgICBjb25zdCBhbGdvcml0aG1zID0gWyJTSEEtMSIsICJTSEEtMjU2IiwgIlNIQS0zODQiLCAiU0hBLTUxMiJdOwogICAgICAgIGZvciAobGV0IGFsZ28gb2YgYWxnb3JpdGhtcykgewogICAgICAgICAgICBsZXQgaGFzaCA9IGF3YWl0IGNhbGN1bGF0ZUhhc2goYWxnbywgZGF0YSk7CiAgICAgICAgICAgIG91dHB1dCArPSBhbGdvICsgIjogIiArIGhhc2ggKyAiXG4iOwogICAgICAgIH0KICAgICAgICByZXN1bHQudGV4dENvbnRlbnQgPSBvdXRwdXQ7CiAgICB9CiAgICA8L3NjcmlwdD4KPC9ib2R5Pgo8L2h0bWw+"},{"name":"Ps1 To Exe","url":"","cid":"QmXKxbBygqyTmW7XCWJC4kK378VUGVqnk5oYXGtfdyaYXH?filename=Ps1_To_Exe.zip","htmlCode":"","description":"Windows application which wraps Ps1 files in executable files."},{"name":"Link to google.com","url":"https://www.google.com","cid":"","htmlCode":"","description":"A simple link to google.com"},{"name":"Vbs To Exe","url":"","cid":"QmWmtG7pbaUqJHknDSpu9JYXQu73EBKGzgEDLxXMbjuKT8?filename=Vbs_To_Exe.zip","htmlCode":"","description":"Windows application which wraps Vbs files in executable files."},{"name":"Zipper","url":"","cid":"QmUGKge8q11dBMJj953YyBhDuSis9Ya2j5hk422z8rdWFs","htmlCode":"","description":"File compression web app"},{"name":"Base64 Encoder/Decoder","url":"","cid":"","htmlCode":"CjwhRE9DVFlQRSBodG1sPgo8aHRtbCBsYW5nPSJlbiI+CjxoZWFkPgogICAgPG1ldGEgY2hhcnNldD0iVVRGLTgiPgogICAgPHRpdGxlPkJhc2U2NCBFbmNvZGVyL0RlY29kZXI8L3RpdGxlPgogICAgPHN0eWxlPgogICAgICAgIGJvZHkgeyBmb250LWZhbWlseTogQXJpYWwsIHNhbnMtc2VyaWY7IGJhY2tncm91bmQtY29sb3I6ICNmMGYyZjU7IHBhZGRpbmc6IDIwcHg7IH0KICAgICAgICBoMSB7IHRleHQtYWxpZ246IGNlbnRlcjsgY29sb3I6ICMzMzM7IH0KICAgICAgICBoMyB7IGNvbG9yOiAjNDQ0OyB9CiAgICAgICAgdGV4dGFyZWEgeyB3aWR0aDogMTAwJTsgaGVpZ2h0OiAxMDBweDsgcGFkZGluZzogMTBweDsgYm9yZGVyLXJhZGl1czogNXB4OyBib3JkZXI6IDFweCBzb2xpZCAjY2NjOyB9CiAgICAgICAgaW5wdXRbdHlwZT0iZmlsZSJdLCBpbnB1dFt0eXBlPSJ0ZXh0Il0geyBtYXJnaW4tdG9wOiAxMHB4OyBwYWRkaW5nOiA1cHg7IH0KICAgICAgICBidXR0b24geyBwYWRkaW5nOiAxMHB4IDIwcHg7IG1hcmdpbi10b3A6IDEwcHg7IGJvcmRlcjogbm9uZTsgYm9yZGVyLXJhZGl1czogNXB4OyBiYWNrZ3JvdW5kLWNvbG9yOiAjNENBRjUwOyBjb2xvcjogd2hpdGU7IGN1cnNvcjogcG9pbnRlcjsgfQogICAgICAgIGJ1dHRvbjpob3ZlciB7IGJhY2tncm91bmQtY29sb3I6ICM0NWEwNDk7IH0KICAgICAgICAjZHJvcHpvbmUgeyBib3JkZXI6IDJweCBkYXNoZWQgI2FhYTsgYm9yZGVyLXJhZGl1czogMTBweDsgcGFkZGluZzogMjBweDsgdGV4dC1hbGlnbjogY2VudGVyOyBiYWNrZ3JvdW5kLWNvbG9yOiAjZmZmOyBtYXJnaW4tdG9wOiAxMHB4OyB9CiAgICA8L3N0eWxlPgo8L2hlYWQ+Cjxib2R5PgogICAgPGgxPkJhc2U2NCBFbmNvZGVyIC8gRGVjb2RlcjwvaDE+CgogICAgPGgzPlRleHQgRW5jb2RlIC8gRGVjb2RlPC9oMz4KICAgIDx0ZXh0YXJlYSBpZD0idGV4dElucHV0IiBwbGFjZWhvbGRlcj0iRW50ZXIgdGV4dCBoZXJlLi4uIj48L3RleHRhcmVhPjxicj4KICAgIDxidXR0b24gb25jbGljaz0iZW5jb2RlVGV4dCgpIj5FbmNvZGUgdG8gQmFzZTY0PC9idXR0b24+CiAgICA8YnV0dG9uIG9uY2xpY2s9ImRlY29kZVRleHQoKSI+RGVjb2RlIGZyb20gQmFzZTY0PC9idXR0b24+CiAgICA8dGV4dGFyZWEgaWQ9InRleHRPdXRwdXQiIHBsYWNlaG9sZGVyPSJSZXN1bHQgd2lsbCBhcHBlYXIgaGVyZS4uLiI+PC90ZXh0YXJlYT4KCiAgICA8aDM+RmlsZSBFbmNvZGUgKFNlbGVjdCBmaWxlIG9yIGRyYWcgJiBkcm9wIGJlbG93KTwvaDM+CiAgICA8aW5wdXQgdHlwZT0iZmlsZSIgaWQ9ImZpbGVJbnB1dCI+PGJyPgogICAgPGRpdiBpZD0iZHJvcHpvbmUiPkRyb3AgZmlsZSBoZXJlPC9kaXY+CiAgICA8dGV4dGFyZWEgaWQ9ImZpbGVPdXRwdXQiIHBsYWNlaG9sZGVyPSJCYXNlNjQgcmVzdWx0IHdpbGwgYXBwZWFyIGhlcmUuLi4iPjwvdGV4dGFyZWE+CgogICAgPGgzPkZpbGUgRGVjb2RlPC9oMz4KICAgIDx0ZXh0YXJlYSBpZD0iZmlsZUJhc2U2NElucHV0IiBwbGFjZWhvbGRlcj0iUGFzdGUgQmFzZTY0IGhlcmUgdG8gZG93bmxvYWQgYXMgZmlsZS4uLiI+PC90ZXh0YXJlYT48YnI+CiAgICA8aW5wdXQgdHlwZT0idGV4dCIgaWQ9ImZpbGVuYW1lIiBwbGFjZWhvbGRlcj0iRW50ZXIgZmlsZW5hbWUgKGUuZy4gb3V0cHV0LmJpbikiPjxicj4KICAgIDxidXR0b24gb25jbGljaz0iZG93bmxvYWRGaWxlKCkiPkRvd25sb2FkIEZpbGU8L2J1dHRvbj4KCiAgICA8c2NyaXB0PgogICAgICAgIGZ1bmN0aW9uIGVuY29kZVRleHQoKSB7CiAgICAgICAgICAgIGxldCBpbnB1dCA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCd0ZXh0SW5wdXQnKS52YWx1ZTsKICAgICAgICAgICAgZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ3RleHRPdXRwdXQnKS52YWx1ZSA9IGJ0b2EodW5lc2NhcGUoZW5jb2RlVVJJQ29tcG9uZW50KGlucHV0KSkpOwogICAgICAgIH0KCiAgICAgICAgZnVuY3Rpb24gZGVjb2RlVGV4dCgpIHsKICAgICAgICAgICAgbGV0IGlucHV0ID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ3RleHRPdXRwdXQnKS52YWx1ZTsKICAgICAgICAgICAgZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ3RleHRJbnB1dCcpLnZhbHVlID0gZGVjb2RlVVJJQ29tcG9uZW50KGVzY2FwZShhdG9iKGlucHV0KSkpOwogICAgICAgIH0KCiAgICAgICAgZnVuY3Rpb24gZW5jb2RlRmlsZShmaWxlKSB7CiAgICAgICAgICAgIGxldCByZWFkZXIgPSBuZXcgRmlsZVJlYWRlcigpOwogICAgICAgICAgICByZWFkZXIub25sb2FkID0gZnVuY3Rpb24oZSkgewogICAgICAgICAgICAgICAgZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ2ZpbGVPdXRwdXQnKS52YWx1ZSA9IGUudGFyZ2V0LnJlc3VsdC5zcGxpdCgnLCcpWzFdOwogICAgICAgICAgICB9CiAgICAgICAgICAgIHJlYWRlci5yZWFkQXNEYXRhVVJMKGZpbGUpOwogICAgICAgIH0KCiAgICAgICAgZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ2ZpbGVJbnB1dCcpLmFkZEV2ZW50TGlzdGVuZXIoJ2NoYW5nZScsIGZ1bmN0aW9uKCkgewogICAgICAgICAgICBpZiAodGhpcy5maWxlcy5sZW5ndGggPiAwKSB7CiAgICAgICAgICAgICAgICBlbmNvZGVGaWxlKHRoaXMuZmlsZXNbMF0pOwogICAgICAgICAgICB9CiAgICAgICAgfSk7CgogICAgICAgIGxldCBkcm9wem9uZSA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdkcm9wem9uZScpOwogICAgICAgIGRyb3B6b25lLmFkZEV2ZW50TGlzdGVuZXIoJ2RyYWdvdmVyJywgZnVuY3Rpb24oZSkgewogICAgICAgICAgICBlLnByZXZlbnREZWZhdWx0KCk7CiAgICAgICAgICAgIGRyb3B6b25lLnN0eWxlLmJhY2tncm91bmRDb2xvciA9ICcjZWVlJzsKICAgICAgICB9KTsKICAgICAgICBkcm9wem9uZS5hZGRFdmVudExpc3RlbmVyKCdkcmFnbGVhdmUnLCBmdW5jdGlvbihlKSB7CiAgICAgICAgICAgIGRyb3B6b25lLnN0eWxlLmJhY2tncm91bmRDb2xvciA9ICcjZmZmJzsKICAgICAgICB9KTsKICAgICAgICBkcm9wem9uZS5hZGRFdmVudExpc3RlbmVyKCdkcm9wJywgZnVuY3Rpb24oZSkgewogICAgICAgICAgICBlLnByZXZlbnREZWZhdWx0KCk7CiAgICAgICAgICAgIGRyb3B6b25lLnN0eWxlLmJhY2tncm91bmRDb2xvciA9ICcjZmZmJzsKICAgICAgICAgICAgaWYgKGUuZGF0YVRyYW5zZmVyLmZpbGVzLmxlbmd0aCA+IDApIHsKICAgICAgICAgICAgICAgIGVuY29kZUZpbGUoZS5kYXRhVHJhbnNmZXIuZmlsZXNbMF0pOwogICAgICAgICAgICB9CiAgICAgICAgfSk7CgogICAgICAgIGZ1bmN0aW9uIGRvd25sb2FkRmlsZSgpIHsKICAgICAgICAgICAgbGV0IGJhc2U2NCA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdmaWxlQmFzZTY0SW5wdXQnKS52YWx1ZTsKICAgICAgICAgICAgbGV0IGZpbGVuYW1lID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ2ZpbGVuYW1lJykudmFsdWUgfHwgJ291dHB1dC5iaW4nOwogICAgICAgICAgICBsZXQgYnl0ZUNoYXJhY3RlcnMgPSBhdG9iKGJhc2U2NCk7CiAgICAgICAgICAgIGxldCBieXRlTnVtYmVycyA9IG5ldyBBcnJheShieXRlQ2hhcmFjdGVycy5sZW5ndGgpOwogICAgICAgICAgICBmb3IgKGxldCBpID0gMDsgaSA8IGJ5dGVDaGFyYWN0ZXJzLmxlbmd0aDsgaSsrKSB7CiAgICAgICAgICAgICAgICBieXRlTnVtYmVyc1tpXSA9IGJ5dGVDaGFyYWN0ZXJzLmNoYXJDb2RlQXQoaSk7CiAgICAgICAgICAgIH0KICAgICAgICAgICAgbGV0IGJ5dGVBcnJheSA9IG5ldyBVaW50OEFycmF5KGJ5dGVOdW1iZXJzKTsKICAgICAgICAgICAgbGV0IGJsb2IgPSBuZXcgQmxvYihbYnl0ZUFycmF5XSk7CiAgICAgICAgICAgIGxldCBsaW5rID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgnYScpOwogICAgICAgICAgICBsaW5rLmhyZWYgPSB3aW5kb3cuVVJMLmNyZWF0ZU9iamVjdFVSTChibG9iKTsKICAgICAgICAgICAgbGluay5kb3dubG9hZCA9IGZpbGVuYW1lOwogICAgICAgICAgICBsaW5rLmNsaWNrKCk7CiAgICAgICAgfQogICAgPC9zY3JpcHQ+CjwvYm9keT4KPC9odG1sPg==","description":""}];
 
     async function openEntry(entry) {
 if (entry.htmlCode) {
@@ -298,6 +474,7 @@ document.addEventListener("DOMContentLoaded", setInitialLanguage);
 <div style="margin-top:50px; font-family: Arial, sans-serif;">
         <a href="mailto:6jkqx20d7@mozmail.com">6jkqx20d7@mozmail.com</a>
 </div>
+
 
 
 
