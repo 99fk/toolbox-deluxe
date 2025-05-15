@@ -9,7 +9,7 @@
     li:hover { background-color: #f0f0f0; }
     input, button { margin: 5px 5px 5px 0; padding: 5px; }
     #language-selector{margin-top:20px;}
-    .entry-name { flex-grow: 1; cursor: default; }
+    .entry-name { flex-grow: 1; cursor: pointer; }
     .icons { display: flex; gap: 10px; }
     .icon-btn { background: none;
     font-family: emoji; border: none; cursor: pointer; font-size: 16px; }
@@ -460,6 +460,14 @@ function downloadDataOnly() {
   URL.revokeObjectURL(a.href);
 }
 
+
+document.addEventListener("DOMContentLoaded", function() {
+    document.querySelectorAll('#list li').forEach(li => {
+        const index = Array.prototype.indexOf.call(li.parentNode.children, li);
+        li.onclick = () => openEntry(data[index]);
+    });
+});
+
 </script>
 
 <div id="language-selector">
@@ -469,7 +477,7 @@ function downloadDataOnly() {
     </select>
 </div>
 
-<div class="info-box" id="infobox">Toolbox ist ein vollständig lokales, sicheres Tool zum Organisieren und Verwalten von Notizen, Links, IPFS-Dateien, kleinen Datensätzen und benutzerdefinierten Skripten – alles in einer einzigen Offline-Datei.<br>Keine Installation, keine Server, kein Tracking.<br>Verwende es als portablen Passwort-Tresor, lokalen Lesezeichen-Manager, einfachen IPFS-Gateway-Helfer, persönliche Wissensdatenbank oder leichtgewichtigen Projekt-Organizer.<br>Das Potenzial ist grenzenlos: Ersetze Tabellenkalkulationen, Textdateien oder verstreute Notizen durch eine einzige, saubere, eigenständige Lösung, die in jedem Browser läuft.<br>Deine Daten bleiben vollständig privat und unter deiner Kontrolle.</div>
+<div class="info-box" id="infobox">Toolbox-Deluxe ist ein vollständig lokales, sicheres Tool zum Organisieren und Verwalten von Notizen, Links, IPFS-Dateien, kleinen Datensätzen und benutzerdefinierten Skripten – alles in einer einzigen Offline-Datei.<br>Keine Installation, keine Server, kein Tracking.<br>Verwende es als portablen Passwort-Tresor, lokalen Lesezeichen-Manager, einfachen IPFS-Gateway-Helfer, persönliche Wissensdatenbank oder leichtgewichtigen Projekt-Organizer.<br>Das Potenzial ist grenzenlos: Ersetze Tabellenkalkulationen, Textdateien oder verstreute Notizen durch eine einzige, saubere, eigenständige Lösung, die in jedem Browser läuft.<br>Deine Daten bleiben vollständig privat und unter deiner Kontrolle.</div>
 
 <script>
 
@@ -511,6 +519,14 @@ function changeLanguage(lang) {
 }
 
 document.addEventListener("DOMContentLoaded", setInitialLanguage);
+
+document.addEventListener("DOMContentLoaded", function() {
+    document.querySelectorAll('#list li').forEach(li => {
+        const index = Array.prototype.indexOf.call(li.parentNode.children, li);
+        li.onclick = () => openEntry(data[index]);
+    });
+});
+
 </script>
 
 <div id="xmr">
@@ -538,9 +554,18 @@ document.addEventListener("DOMContentLoaded", function() {
     if (document.getElementById('list')?.getAttribute('data-only') === 'true') {
         document.querySelectorAll('#list li').forEach(li => {
             const index = Array.prototype.indexOf.call(li.parentNode.children, li);
-            li.ondblclick = () => openEntry(data[index]);
+            li.onclick = () => openEntry(data[index]);
         });
     }
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+    document.querySelectorAll('#list li').forEach(li => {
+        const index = Array.prototype.indexOf.call(li.parentNode.children, li);
+        li.onclick = () => openEntry(data[index]);
+    });
+});
+
 </script>
+
 </body></html>
