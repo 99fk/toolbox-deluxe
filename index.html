@@ -290,25 +290,25 @@ span.onclick = () => openEntry(entry);
         openBtn.innerHTML = '▶️';
         openBtn.className = 'icon-btn';
         openBtn.title = 'Open entry (URL, IPFS or HTML)';
-        openBtn.onclick = () => openEntry(entry);
+        openBtn.onclick = (event) => { event.stopPropagation(); openEntry(entry); };
 
         const editBtn = document.createElement('button');
         editBtn.innerHTML = '✏️';
         editBtn.className = 'icon-btn';
         editBtn.title = 'Edit';
-        editBtn.onclick = () => editEntry(index);
+        editBtn.onclick = (event) => { event.stopPropagation(); editEntry(index); };
 
         const copyBtn = document.createElement('button');
         copyBtn.innerHTML = '📋';
         copyBtn.className = 'icon-btn';
         copyBtn.title = 'Copy URL to clipboard';
-        copyBtn.onclick = () => navigator.clipboard.writeText(entry.url);
+        copyBtn.onclick = (event) => { event.stopPropagation(); navigator.clipboard.writeText(entry.url); };
 
         const deleteBtn = document.createElement('button');
         deleteBtn.innerHTML = '🗑️';
         deleteBtn.className = 'icon-btn';
         deleteBtn.title = 'Delete';
-        deleteBtn.onclick = () => deleteEntry(index);
+        deleteBtn.onclick = (event) => { event.stopPropagation(); deleteEntry(index); };
 
         icons.appendChild(openBtn);
         icons.appendChild(editBtn);
@@ -317,7 +317,7 @@ span.onclick = () => openEntry(entry);
 exportBtn.innerHTML = "📤";
 exportBtn.className = "icon-btn";
 exportBtn.title = "Export entry as JSON file";
-exportBtn.onclick = () => exportEntry(entry);
+exportBtn.onclick = (event) => { event.stopPropagation(); exportEntry(entry); };
 icons.appendChild(exportBtn);
 
         icons.appendChild(deleteBtn);
