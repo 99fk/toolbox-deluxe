@@ -280,6 +280,8 @@ if (entry.htmlCode) {
         const span = document.createElement('span');
         span.innerHTML = entry.name + (entry.description ? ' <span class=\"entry-description\">' + entry.description + '</span>' : '');
         span.className = 'entry-name';
+span.style.cursor = "pointer";
+span.onclick = () => openEntry(entry);
 
         const icons = document.createElement('span');
         icons.className = 'icons';
@@ -322,7 +324,9 @@ icons.appendChild(exportBtn);
 
         li.appendChild(span);
         li.appendChild(icons);
-        list.appendChild(li);
+        li.style.cursor = "pointer";
+li.onclick = () => openEntry(entry);
+list.appendChild(li);
       });
     }
 
